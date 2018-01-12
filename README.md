@@ -5,3 +5,19 @@ Execute [setup-lsp-dev.sh](https://github.com/kieferrm/lsp-dev-setup/blob/master
 [insiders-lsp-dev.sh](https://github.com/kieferrm/lsp-dev-setup/blob/master/insiders-lsp-dev.sh) opens two VS Code insider windows. One for the LSP client and server, and one for the SDK.
 
 See https://github.com/kieferrm/vscode-extension-samples/blob/master/lsp-sample/README.md for where to go from here.
+
+### File layout
+```
+vscode-languageserver-node
+node_modules
+   vscode-languageclient -> ../vscode-languageserver-node/client
+   vscode-languageserver -> ../vscode-languageserver-node/server
+   vscode-languageserver-protocol -> ../vscode-languageserver-node/protocol
+   vscode-languageserver-types -> ../vscode-languageserver-node/types
+   vscode-jsonrpc -> ../vscode-languageserver-node/jsonrpc
+vscode-extension-samples
+   lsp-sample
+      client
+      server
+```
+There are no `vscode-languageclient`, `vscode-languageserver`, `vscode-languageserver-protocol`, `vscode-languageserver-types` or `vscode-jsonrpc` packages in any `node_modules` folder in `vscode-languageserver-node` or `vscode-extension-samples/lsp-sample`.
