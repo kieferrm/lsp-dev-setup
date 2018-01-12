@@ -13,7 +13,7 @@ git clone git@github.com:kieferrm/vscode-extension-samples.git
 cd vscode-extension-samples/lsp-sample
 npm install
 
-# patch for compile issue with double resolved symbols (can be removed once we understand why it happens)
+# As long as `vscode.d.ts` declares a global module we need to add the following line to ensure the compiler does not see duplicate symbol definitions
 rm -rf client/node_modules/vscode
 
 cd ../..
