@@ -1,4 +1,5 @@
 #!/bin/bash
+
 mkdir lsp-dev
 cd lsp-dev
 
@@ -12,11 +13,13 @@ cd ..
 git clone git@github.com:kieferrm/vscode-extension-samples.git
 cd vscode-extension-samples/lsp-sample
 npm install
-
-# As long as `vscode.d.ts` declares a global module we need to add the following line to ensure the compiler does not see duplicate symbol definitions
-rm -rf client/node_modules/vscode
-
 cd ../..
+
+
+# patch vscode.d.ts to use regular modules rather than global definitions
+SCRIPTDIR=`dirname $0`
+cp -f ../${SCRIPTDIR}/vscode-definitions/1.18/vscode.d.ts vscode-languageserver-node/client/node_modules/vscode 
+cp -f ../${SCRIPTDIR}/vscode-definitions/1.16/vscode.d.ts vscode-extension-samples/lsp-sample/client/node_modules/vscode
 
 
 FOLDER=`pwd`
