@@ -4,16 +4,16 @@ mkdir lsp-dev
 cd lsp-dev
 
 # git clone git@github.com:Microsoft/vscode-languageserver-node.git
-git clone git@github.com:kieferrm/vscode-languageserver-node.git
+git clone https://github.com/kieferrm/vscode-languageserver-node.git
 cd vscode-languageserver-node
-# git checkout test271
+git checkout test271
 npm install
 cd ..
 
 # git clone git@github.com:Microsoft/vscode-extension-samples.git
-git clone git@github.com:kieferrm/vscode-extension-samples.git
+git clone https://github.com/kieferrm/vscode-extension-samples.git
 cd vscode-extension-samples/lsp-sample
-# git checkout test271
+git checkout test271
 npm install
 cd ../..
 
@@ -25,11 +25,11 @@ cp -f ../${SCRIPTDIR}/vscode-definitions/1.16/vscode.d.ts vscode-extension-sampl
 
 
 FOLDER=`pwd`
-find ${FOLDER} -d -name vscode-languageclient -exec rm -rf {} \;
-find ${FOLDER} -d -name vscode-jsonrpc -exec rm -rf {} \;
-find ${FOLDER} -d -name vscode-languageserver -exec rm -rf {} \;
-find ${FOLDER} -d -name vscode-languageserver-protocol -exec rm -rf {} \;
-find ${FOLDER} -d -name vscode-languageserver-types -exec rm -rf {} \;
+find ${FOLDER} -depth -name vscode-languageclient -exec rm -rf {} \;
+find ${FOLDER} -depth -name vscode-jsonrpc -exec rm -rf {} \;
+find ${FOLDER} -depth -name vscode-languageserver -exec rm -rf {} \;
+find ${FOLDER} -depth -name vscode-languageserver-protocol -exec rm -rf {} \;
+find ${FOLDER} -depth -name vscode-languageserver-types -exec rm -rf {} \;
 
 mkdir node_modules
 cd node_modules
